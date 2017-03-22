@@ -8,7 +8,7 @@ import (
 	"strconv"
 
 	"github.com/juju/errors"
-	"github.com/siddontang/go-mysql/mysql"
+	"github.com/zjh1943/go-mysql/mysql"
 )
 
 var (

@@ -1,5 +1,5 @@
-MYSQL_IMAGE=siddontang/mysql:latest
-MARIADB_IMAGE=siddontang/mariadb:latest
+MYSQL_IMAGE=zjh1943/mysql:latest
+MARIADB_IMAGE=zjh1943/mariadb:latest
 
 all: run_mysql1 run_mysql2 run_mysql3 run_mariadb1 run_mariadb2 run_mariadb3
 

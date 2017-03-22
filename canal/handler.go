@@ -3,7 +3,7 @@ package canal
 import (
 	"github.com/juju/errors"
 	"github.com/ngaut/log"
-	"github.com/siddontang/go-mysql/mysql"
+	"github.com/zjh1943/go-mysql/mysql"
 )
 
 var (

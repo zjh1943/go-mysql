@@ -6,8 +6,8 @@ import (
 
 	"github.com/juju/errors"
 	"github.com/ngaut/log"
-	"github.com/siddontang/go-mysql/dump"
-	"github.com/siddontang/go-mysql/schema"
+	"github.com/zjh1943/go-mysql/dump"
+	"github.com/zjh1943/go-mysql/schema"
 )
 
 type dumpParseHandler struct {

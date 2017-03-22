@@ -12,7 +12,7 @@ You can use it as a MySQL slave to sync binlog from master then do something, li
 
 ```go
 import (
-    "github.com/siddontang/go-mysql/replication"
+    "github.com/zjh1943/go-mysql/replication"
     "os"
 )
 // Create a binlog syncer with a unique server id, the server id must be different from other MySQL's. 
@@ -124,7 +124,7 @@ c.RegRowsEventHandler(&MyRowsEventHandler{})
 c.Start()
 ```
 
-You can see [go-mysql-elasticsearch](https://github.com/siddontang/go-mysql-elasticsearch) for how to sync MySQL data into Elasticsearch. 
+You can see [go-mysql-elasticsearch](https://github.com/zjh1943/go-mysql-elasticsearch) for how to sync MySQL data into Elasticsearch. 
 
 ## Client
 
@@ -134,7 +134,7 @@ Client package supports a simple MySQL connection driver which you can use it to
 
 ```go
 import (
-    "github.com/siddontang/go-mysql/client"
+    "github.com/zjh1943/go-mysql/client"
 )
 
 // Connect MySQL at 127.0.0.1:3306, with user root, an empty passowrd and database test
@@ -165,7 +165,7 @@ You can use it to build your own MySQL proxy.
 
 ```go
 import (
-    "github.com/siddontang/go-mysql/server"
+    "github.com/zjh1943/go-mysql/server"
     "net"
 )
 
@@ -208,7 +208,7 @@ Driver is the package that you can use go-mysql with go database/sql like other 
 import (
     "database/sql"
 
-    - "github.com/siddontang/go-mysql/driver"
+    - "github.com/zjh1943/go-mysql/driver"
 )
 
 func main() {
@@ -227,11 +227,11 @@ If you like the project and want to buy me a cola, you can through:
 
 |PayPal|微信|
 |------|---|
-|[![](https://www.paypalobjects.com/webstatic/paypalme/images/pp_logo_small.png)](https://paypal.me/siddontang)|[![](https://github.com/siddontang/blog/blob/master/donate/weixin.png)|
+|[![](https://www.paypalobjects.com/webstatic/paypalme/images/pp_logo_small.png)](https://paypal.me/zjh1943)|[![](https://github.com/zjh1943/blog/blob/master/donate/weixin.png)|
 
 ## Feedback
 
 go-mysql is still in development, your feedback is very welcome. 
 
 
-Gmail: siddontang@gmail.com
+Gmail: zjh1943@gmail.com
