@@ -487,7 +487,17 @@ func (b *BinlogSyncer) onStream(s *BinlogStreamer) {
 	for {
 		data, err := b.c.ReadPacket()
 		if err != nil {
-			log.Error(err)
+			// if err.Error() == io.EOF.Error() {
+			// 	// If error is EOF , it is just because there is no data to sync. Don't worry. Just let it go.
+			// 	// We can not compare with statement ` err == io.EOF ` because they have different types, though they are all error(s).
+			// 	// I don't know how to do.
+			// 	select {
+			// 	case <-time.After(time.Second):
+			// 		continue
+			// 	}
+			// }
+
+			// log.Error(err)
 
 			// we meet connection error, should re-connect again with
 			// last nextPos we got.

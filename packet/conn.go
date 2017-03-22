@@ -7,6 +7,7 @@ import (
 	"net"
 
 	"github.com/juju/errors"
+	"github.com/ngaut/log"
 	. "github.com/zjh1943/go-mysql/mysql"
 )
 
@@ -79,7 +80,7 @@ func (c *Conn) ReadPacketTo(w io.Writer) error {
 	header := []byte{0, 0, 0, 0}
 
 	if _, err := io.ReadFull(c.br, header); err != nil {
-		return ErrBadConn
+		return err
 	}
 
 	length := int(uint32(header[0]) | uint32(header[1])<<8 | uint32(header[2])<<16)
@@ -96,8 +97,10 @@ func (c *Conn) ReadPacketTo(w io.Writer) error {
 	c.Sequence++
 
 	if n, err := io.CopyN(w, c.br, int64(length)); err != nil {
+		log.Error(err)
 		return ErrBadConn
 	} else if n != int64(length) {
+		log.Error(err)
 		return ErrBadConn
 	} else {
 		if length < MaxPayloadLen {
