@@ -28,9 +28,10 @@ type DumpConfig struct {
 }
 
 type Config struct {
-	Addr     string `toml:"addr"`
-	User     string `toml:"user"`
-	Password string `toml:"password"`
+	Addr     string   `toml:"addr"`
+	User     string   `toml:"user"`
+	Password string   `toml:"password"`
+	Dbs      []string `toml:"dbs"`
 
 	ServerID uint32 `toml:"server_id"`
 	Flavor   string `toml:"flavor"`

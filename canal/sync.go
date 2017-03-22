@@ -103,6 +103,22 @@ func (c *Canal) handleRowsEvent(e *replication.BinlogEvent) error {
 	schema := string(ev.Table.Schema)
 	table := string(ev.Table.Table)
 
+	// If db not in config file, ignore it
+	needProcess := false
+	if len(c.cfg.Dbs) <= 0 {
+		needProcess = true
+	} else {
+		for _, v := range c.cfg.Dbs {
+			if schema == v {
+				needProcess = true
+				break
+			}
+		}
+	}
+	if !needProcess {
+		return nil
+	}
+
 	t, err := c.GetTable(schema, table)
 	if err != nil {
 		return errors.Trace(err)
