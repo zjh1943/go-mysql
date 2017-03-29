@@ -58,7 +58,8 @@ func Connect(addr string, user string, password string, dbName string, options .
 	c.db = dbName
 
 	//use default charset here, utf-8
-	c.charset = DEFAULT_CHARSET
+	// c.charset = DEFAULT_CHARSET
+	c.charset = "utf8mb4"
 
 	// Apply configuration functions.
 	for i := range options {
