@@ -18,6 +18,7 @@ type Dumper struct {
 	Addr     string
 	User     string
 	Password string
+	CharSet  string
 
 	// Will override Databases
 	Tables  []string
@@ -96,6 +97,10 @@ func (d *Dumper) Dump(w io.Writer) error {
 
 	args = append(args, fmt.Sprintf("--user=%s", d.User))
 	args = append(args, fmt.Sprintf("--password=%s", d.Password))
+
+	if len(d.CharSet) > 0 {
+		args = append(args, fmt.Sprintf("--default-character-set==%s", d.CharSet))
+	}
 
 	args = append(args, "--master-data")
 	args = append(args, "--single-transaction")

@@ -25,6 +25,9 @@ type DumpConfig struct {
 
 	// If true, discard error msg, else, output to stderr
 	DiscardErr bool `toml:"discard_err"`
+
+	// mysqldump --default-character-set={charset}
+	CharSet string `toml:"charset"`
 }
 
 type Config struct {

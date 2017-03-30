@@ -11,12 +11,12 @@ import (
 
 	"github.com/juju/errors"
 	"github.com/ngaut/log"
+	"github.com/siddontang/go/sync2"
 	"github.com/zjh1943/go-mysql/client"
 	"github.com/zjh1943/go-mysql/dump"
 	"github.com/zjh1943/go-mysql/mysql"
 	"github.com/zjh1943/go-mysql/replication"
 	"github.com/zjh1943/go-mysql/schema"
-	"github.com/siddontang/go/sync2"
 )
 
 var errCanalClosed = errors.New("canal was closed")
@@ -103,6 +103,8 @@ func (c *Canal) prepareDumper() error {
 		//no mysqldump, use binlog only
 		return nil
 	}
+
+	c.dumper.CharSet = c.cfg.Dump.CharSet
 
 	dbs := c.cfg.Dump.Databases
 	tables := c.cfg.Dump.Tables
