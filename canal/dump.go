@@ -60,6 +60,7 @@ func (h *dumpParseHandler) Data(db string, table string, values []string) error 
 			}
 		} else {
 			vs[i] = unescapeSqlString(v[1 : len(v)-1])
+			// vs[i] = v[1 : len(v)-1]
 		}
 	}
 
