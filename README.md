@@ -221,17 +221,3 @@ func main() {
 
 We pass all tests in https://github.com/bradfitz/go-sql-test using go-mysql driver. :-)
 
-## Donate
-
-If you like the project and want to buy me a cola, you can through: 
-
-|PayPal|微信|
-|------|---|
-|[![](https://www.paypalobjects.com/webstatic/paypalme/images/pp_logo_small.png)](https://paypal.me/zjh1943)|[![](https://github.com/zjh1943/blog/blob/master/donate/weixin.png)|
-
-## Feedback
-
-go-mysql is still in development, your feedback is very welcome. 
-
-
-Gmail: zjh1943@gmail.com
