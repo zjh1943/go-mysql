@@ -67,8 +67,8 @@ func (m *masterInfo) Save(force bool) error {
 	return errors.Trace(err)
 }
 
+var lastLogTime int64 = 0
 func (m *masterInfo) Update(name string, pos uint32) {
-	log.Debugf("update master position (%s, %d)", name, pos)
 	m.l.Lock()
 	m.Name = name
 	m.Position = pos

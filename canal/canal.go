@@ -36,6 +36,9 @@ type Canal struct {
 	rsLock     sync.Mutex
 	rsHandlers []RowsEventHandler
 
+	psLock     sync.Mutex
+	psHandlers []ProgressHandler
+
 	connLock sync.Mutex
 	conn     *client.Conn
 
@@ -141,10 +144,12 @@ func (c *Canal) Start() error {
 func (c *Canal) run() error {
 	defer c.wg.Done()
 
+	c.onDumpStart()
 	if err := c.tryDump(); err != nil {
 		log.Errorf("canal dump mysql err: %v", err)
 		return errors.Trace(err)
 	}
+	c.onDumpComplete()
 
 	close(c.dumpDoneCh)
 

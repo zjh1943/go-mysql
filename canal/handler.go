@@ -17,6 +17,8 @@ type RowsEventHandler interface {
 	String() string
 }
 
+
+
 func (c *Canal) RegRowsEventHandler(h RowsEventHandler) {
 	c.rsLock.Lock()
 	c.rsHandlers = append(c.rsHandlers, h)
@@ -39,3 +41,28 @@ func (c *Canal) travelRowsEventHandler(e *RowsEvent) error {
 	}
 	return nil
 }
+
+type ProgressHandler interface {
+	OnDumpStart()
+	OnDumpComplete()
+}
+
+func(c *Canal) RegProgressHandler( h ProgressHandler){
+	c.psLock.Lock()
+	c.psHandlers = append(c.psHandlers, h)
+	c.psLock.Unlock()
+}
+
+func (c *Canal) onDumpStart(){
+	for _,h := range c.psHandlers {
+		h.OnDumpStart()
+	}
+}
+func (c *Canal) onDumpComplete(){
+	for _,h := range c.psHandlers {
+		h.OnDumpComplete()
+	}
+}
+
+
+
